@@ -414,6 +414,140 @@ class SiteController extends Controller
             file_put_contents(Yii::app()->basePath.'/../images/dressroom/'.$item->img, file_get_contents($src.$item->img));
         }
     }
+
+    /** @var array Раздел => Тип */
+    private $_oldBkCategoriesAndTypes = array(
+        1   => 'knives',  //Оружие:кастеты,ножи
+        2   => 'boots', //Сапоги
+        3   => 'shields', //Щиты
+        4   => 'earrings',  //Cерьги
+        6   => 'cloak', //Плащи
+        11  => 'axes',  //Оружие:топоры
+        12  => 'maces',  //Оружие:дубины,булавы
+        13  => 'swords',  //Оружие:мечи
+        21  => 'gloves',  //Перчатки
+        22  => 'light_armor', //Легкая броня
+        23  => 'heavy_armor',  //Тяжелая броня
+        24  => 'helmets',  //Шлемы
+        41  => 'necklaces',  //Ожерелья
+        42  => 'rings'   //Кольца
+    );
+
+    public function actionDump()
+    {
+        $xml = new DOMDocument("1.0", 'utf-8');
+        $root = $xml->createElement('items');
+
+        /** @var DOMElement[] $children */
+        $children = array();
+        foreach ($this->_oldBkCategoriesAndTypes as $key => $item) {
+            try {
+                $children[$key] = $xml->createElement($item);
+            } catch (Exception $ex) {
+                var_dump($ex->getMessage());
+                var_dump($item);
+            }
+        }
+
+
+
+        /** @var Shop[] $Shop */
+        $Shop = Shop::model()->findAll();
+        foreach ($Shop as $item) {
+            /** @var DOMElement $xmlChild */
+            $xmlChild = $children[$item->razdel];
+
+            $itemRoot = $xml->createElement('item');
+            //$itemRoot->setAttribute('id', $item->id);
+
+            $mainInfo = $xml->createElement('main');
+            $mainInfo->appendChild($xml->createElement('name', $item->name));
+            $mainInfo->appendChild($xml->createElement('img', $item->img));
+            $mainInfo->appendChild($xml->createElement('weight', $item->massa));
+            $mainInfo->appendChild($xml->createElement('price', $item->cost));
+            $mainInfo->appendChild($xml->createElement('eprice', $item->ecost));
+            $mainInfo->appendChild($xml->createElement('max_duration', $item->maxdur));
+            $itemRoot->appendChild($mainInfo);
+
+            $infoDamage = $xml->createElement('damage');
+            $infoDamage->appendChild($xml->createElement('min_damage', $item->minu));
+            $infoDamage->appendChild($xml->createElement('max_damage', $item->maxu));
+            $itemRoot->appendChild($infoDamage);
+
+            $infoNeed = $xml->createElement('need');
+            $infoNeed->appendChild($xml->createElement('need_level', $item->nlevel));
+            $infoNeed->appendChild($xml->createElement('need_strange', $item->nsila));
+            $infoNeed->appendChild($xml->createElement('need_agility', $item->nlovk));
+            $infoNeed->appendChild($xml->createElement('need_intuition', $item->ninta));
+            $infoNeed->appendChild($xml->createElement('need_endurance', $item->nvinos));
+            $infoNeed->appendChild($xml->createElement('need_intelligence', $item->nintel));
+            $infoNeed->appendChild($xml->createElement('need_wisdom', $item->nmudra));
+            $infoNeed->appendChild($xml->createElement('need_knife', $item->nnoj));
+            $infoNeed->appendChild($xml->createElement('need_ax', $item->ntopor));
+            $infoNeed->appendChild($xml->createElement('need_sword', $item->nmech));
+            $infoNeed->appendChild($xml->createElement('need_baton', $item->ndubina));
+            $infoNeed->appendChild($xml->createElement('need_align', $item->nalign));
+            $infoNeed->appendChild($xml->createElement('need_fire', $item->nfire));
+            $infoNeed->appendChild($xml->createElement('need_water', $item->nwater));
+            $infoNeed->appendChild($xml->createElement('need_air', $item->nair));
+            $infoNeed->appendChild($xml->createElement('need_earth', $item->nearth));
+            $infoNeed->appendChild($xml->createElement('need_light', $item->nlight));
+            $infoNeed->appendChild($xml->createElement('need_gray', $item->ngray));
+            $infoNeed->appendChild($xml->createElement('need_dark', $item->ndark));
+            $itemRoot->appendChild($infoNeed);
+
+            $infoGive = $xml->createElement('give');
+            $infoGive->appendChild($xml->createElement('give_hp', $item->ghp));
+            $infoGive->appendChild($xml->createElement('give_mp', $item->gmp));
+            $infoGive->appendChild($xml->createElement('give_critical', $item->mfkrit));
+            $infoGive->appendChild($xml->createElement('give_p_critical', $item->mfakrit));
+            $infoGive->appendChild($xml->createElement('give_flee', $item->mfuvorot));
+            $infoGive->appendChild($xml->createElement('give_p_flee', $item->mfauvorot));
+            $infoGive->appendChild($xml->createElement('give_strange', $item->gsila));
+            $infoGive->appendChild($xml->createElement('give_agility', $item->glovk));
+            $infoGive->appendChild($xml->createElement('give_intuition', $item->ginta));
+            $infoGive->appendChild($xml->createElement('give_intelligence', $item->gintel));
+            $infoGive->appendChild($xml->createElement('give_knife', $item->gnoj));
+            $infoGive->appendChild($xml->createElement('give_ax', $item->gtopor));
+            $infoGive->appendChild($xml->createElement('give_sword', $item->gmech));
+            $infoGive->appendChild($xml->createElement('give_baton', $item->gdubina));
+            $infoGive->appendChild($xml->createElement('give_fire', $item->gfire));
+            $infoGive->appendChild($xml->createElement('give_water', $item->gwater));
+            $infoGive->appendChild($xml->createElement('give_air', $item->gair));
+            $infoGive->appendChild($xml->createElement('give_earth', $item->gearth));
+            $infoGive->appendChild($xml->createElement('give_light', $item->glight));
+            $infoGive->appendChild($xml->createElement('give_gray', $item->ggray));
+            $infoGive->appendChild($xml->createElement('give_dark', $item->gdark));
+            $itemRoot->appendChild($infoGive);
+
+            $infoArmor = $xml->createElement('armor');
+            $infoArmor->appendChild($xml->createElement('armor_head', $item->bron1));
+            $infoArmor->appendChild($xml->createElement('armor_body', $item->bron2));
+            $infoArmor->appendChild($xml->createElement('armor_belt', $item->bron3));
+            $infoArmor->appendChild($xml->createElement('armor_feet', $item->bron4));
+            $itemRoot->appendChild($infoArmor);
+
+            $infoUsil = $xml->createElement('increased');
+            $infoUsil->appendChild($xml->createElement('increased_damage', $item->ab_mf));
+            $infoUsil->appendChild($xml->createElement('increased_armor', $item->ab_bron));
+            $infoUsil->appendChild($xml->createElement('increased_mf', $item->ab_uron));
+            $itemRoot->appendChild($infoUsil);
+
+            $infoBonus = $xml->createElement('bonus');
+            $infoBonus->appendChild($xml->createElement('free_mf', $item->mfbonus));
+            $infoBonus->appendChild($xml->createElement('free_stats', $item->stbonus));
+            $itemRoot->appendChild($infoBonus);
+
+            $xmlChild->appendChild($itemRoot);
+        }
+
+        foreach ($children as $item) {
+            $root->appendChild($item);
+        }
+        $xml->appendChild($root);
+
+        $xml->save(Yii::app()->basePath.'/../api/new_items.xml');
+    }
 }
 
 function recurs(&$item, $key)

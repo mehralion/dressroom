@@ -80,7 +80,6 @@
         <td>Стоимость:</td>
         <td class="value">
             <div class="cost" value="0" style="display: inline-block;"></div>
-            <div class="cost_ekr" value="0" style="display: inline-block;"></div>
             <div class="cost_repa" value="0" style="display: inline-block;"></div>
         </td>
     </tr>

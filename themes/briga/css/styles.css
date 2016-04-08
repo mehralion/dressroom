@@ -1,3 +1,8 @@
 #page {
     padding-top: 60px;
 }
+#popup__overlay .popup_cont .cont_middle {
+    max-height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+}
