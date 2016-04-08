@@ -124,7 +124,7 @@ return array(
 		// uncomment the following to use a MySQL database
 
         'db' => array(
-            'connectionString' => 'mysql:host=88.198.205.122;dbname=blogdb',
+            'connectionString' => 'mysql:host=88.198.205.122;dbname=prim',
             'username' => 'blogdb',
             'password' => 'zmtbqYeIRZaNwjqyOIio',
             'emulatePrepare' => true,
