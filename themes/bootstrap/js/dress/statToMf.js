@@ -1,0 +1,29 @@
+statToMf = {
+    stats:{
+        sila:{
+            other:{
+                minu:1/3,
+                maxu:1/3
+            }
+        },
+        lovka:{
+            mf:{
+                uvor:5,
+                puvor:5,
+                pkrit:2
+            }
+        },
+        inta:{
+            mf:{
+                krit:5,
+                pkrit:5,
+                puvor:2
+            }
+        },
+        vinos:{
+            other:{
+                hp:6
+            }
+        }
+    }
+};

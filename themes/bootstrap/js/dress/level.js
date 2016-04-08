@@ -1,0 +1,88 @@
+/**
+ * Created with JetBrains PhpStorm.
+ * User: СпокоенКакЛед
+ * Date: 21.09.12
+ * Time: 12:31
+ * To change this template use File | Settings | File Templates.
+ */
+var levelGive = {
+    0:{
+        stats:15,
+        vinos:0,
+        ap:3,
+        vlad:0
+    },
+    1:{
+        stats:3,
+        vinos:1,
+        ap:4,
+        vlad:1
+
+    },
+    2:{
+        stats:3,
+        vinos:1,
+        ap:5,
+        vlad:1
+    },
+    3:{
+        stats:3,
+        vinos:1,
+        ap:5,
+        vlad:1
+    },
+    4:{
+        stats:5,
+        vinos:1,
+        ap:5,
+        vlad:1
+    },
+    5:{
+        stats:3,
+        vinos:1,
+        ap:7,
+        vlad:1
+    },
+    6:{
+        stats:3,
+        vinos:1,
+        ap:7,
+        vlad:1
+    },
+    7:{
+        stats:5,
+        vinos:1,
+        ap:8,
+        vlad:1
+    },
+    8:{
+        stats:5,
+        vinos:1,
+        ap:9,
+        vlad:1
+    },
+    9:{
+        stats:5,
+        vinos:2,
+        ap:9,
+        vlad:1
+    },
+    10:{
+        stats:9,
+        vinos:3,
+        ap:21,
+        vlad:1
+    },
+    11:{
+        stats:10,
+        vinos:3,
+        ap:13,
+        vlad:1
+    },
+    12:{
+        stats:10,
+        vinos:4,
+        ap:1,
+        vlad:2
+    }
+}

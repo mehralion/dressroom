@@ -1,0 +1,179 @@
+/* main */
+.c1, .c2 {
+    display: inline-block;
+    vertical-align: top;
+    width: 350px;
+}
+.separator{
+    BORDER-RIGHT: 1px dashed;
+    BORDER-TOP: 1px dashed;
+    BORDER-LEFT: 1px dashed;
+    COLOR: #cccccc;
+    BORDER-BOTTOM: 1px dashed;
+    HEIGHT: 1px;
+    border-right: 1px dashed;
+    border-top: 1px dashed;
+    border-left: 1px dashed;
+    border-bottom: 1px dashed;
+}
+.p {
+    background-image: url("/images/dress/up.gif");
+    background-repeat: no-repeat;
+    width: 9px;
+    height: 9px;
+    cursor: pointer;
+}
+.m {
+    background-image: url("/images/dress/down.gif");
+    background-repeat: no-repeat;
+    width: 9px;
+    height: 9px;
+    cursor: pointer;
+}
+.hint {
+    position: absolute;
+    background-color: #ffffe1;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px 0 #555;
+    -webkit-box-shadow: 5px 5px 10px 0 #555;
+    -moz-box-shadow: 5px 5px 10px 0 #555555;
+    -moz-border-radius: 0px 30px 30px 30px;
+    -webkit-border-radius: 0px 10px 10px 10px;
+    padding: 5px;
+    font-weight: bold;
+    min-width: 200px;
+    z-index: 99999;
+    font-size: 12px;
+    font-weight: normal;
+    /*box-shadow:0 0 10px 0 #555555;
+-webkit-box-shadow:0 0 10px 0 #555555;
+-moz-box-shadow:0 0 10px 0 #555555;*/
+}
+/* end main */
+/* pers */
+table.pers img.i {
+    cursor: pointer;
+}
+/* end pers */
+/* stats */
+.hintview {
+    font-size: 9px;
+    color: infotext;
+    border: 1px solid infotext;
+    padding: 1px 1px 1px 1px;
+    background: infobackground;
+}
+table.stats {
+    font: normal 10pt Tahoma;
+    color: #4D4D4D;
+}
+table.stats input{
+    width: 20px;
+    padding: 2px;
+    margin-bottom: 0px;
+}
+table.stats td.label{
+    text-align: left;
+}
+#editheader1 {
+    text-align: center;
+}
+
+/* end stat */
+/* items window */
+.item_window .item {
+    display: inline-block;
+}
+/* end items window */
+
+/* menu */
+.menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px 0 #555;
+    padding: 5px;
+    min-width: 200px;
+    font-size: 11px;
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    /*box-shadow:0 0 10px 0 #555555;
+    -webkit-box-shadow:0 0 10px 0 #555555;
+    -moz-box-shadow:0 0 10px 0 #555555;*/
+}
+
+.menu  .item {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: white;
+    color: black;
+    border: 0px none blue;
+    padding: 2px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu  .item:hover {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: cornflowerBlue;
+    color: black;
+    border: 1px solid blue;
+    padding: 1px;
+    cursor: pointer;
+    text-align: center;
+}
+/* end menu */
+.changeItem{
+    width: 710px;
+    display: block;
+}
+.changeItem .left, .changeItem .right {
+    display: inline-block;
+    vertical-align: top;
+}
+.changeItem .left {
+    width: 300px;
+}
+.changeItem .right {
+    margin-left: 10px;
+    width: 400px;
+}
+.changeItem input, .changeItem select {
+    width: 50px;
+}
+.changeItem .left label, .changeItem .right label {
+    display: inline-block;
+    margin-left: 30px;
+}
+.changeItem .left label {
+    width: 130px;
+}
+.changeItem .right label {
+    width: 230px;
+}
+.changeItem img{
+    cursor: pointer;
+}
+.changeItem .left img.unselect {
+    -khtml-opacity: .30;
+    -moz-opacity: .30;
+    -ms-filter: "alpha(opacity=30)";
+    filter: alpha(opacity=30);
+    opacity: .30;
+}
+.changeItem .left .usil.row{
+    margin-left: 0px;
+}
+.changeItem .left .usil.row label {
+    width: 200px;
+}
+#myModal.change_window {
+    max-width: 900px;
+    width: 770px;
+    height: 700px;
+    margin-left: -370px;
+}
+#myModal.change_window .modal-body {
+    max-height: 600px !important;
+}
