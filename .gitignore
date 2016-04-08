@@ -1,3 +1,5 @@
 .idea
-protected/runtime
+vendor
 assets
+protected/runtime
+composer.lock

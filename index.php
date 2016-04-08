@@ -16,7 +16,7 @@ if($_SERVER['SERVER_ADDR']=='192.168.33.13'){
 } else {
     define('YII_DEBUG', true);
     ini_set("display_errors", 0);
-    $yii=dirname(__FILE__).'/../frameworks/yii-1.1.14/framework/YiiBase.php';
+    $yii=dirname(__FILE__).'/vendor/yiisoft/yii/framework/YiiBase.php';
     $config=dirname(__FILE__).'/protected/config/main.php';
 }
 require_once($yii);
