@@ -70,6 +70,16 @@
             <?php echo $form->error($model,'durability'); ?>
         </td>
     </tr>
+    <tr>
+        <td>
+            <?php echo $form->labelEx($model,'rareitem'); ?>
+            <?php echo CHtml::activeDropDownList($model, 'rareitem', ObkItems::getRareList()); ?>
+            <?php echo $form->error($model,'rareitem'); ?>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
 <table style="width: 100%" id="params">
     <tr>
@@ -126,6 +136,49 @@
             <?php echo $form->textField($model, 'need_baton'); ?>
             <?php echo $form->error($model,'need_baton'); ?>
         </td>
+    </tr>
+    <tr>
+        <td colspan="5"><hr></td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $form->labelEx($model,'need_fire'); ?>
+            <?php echo $form->textField($model, 'need_fire'); ?>
+            <?php echo $form->error($model,'need_fire'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'need_water'); ?>
+            <?php echo $form->textField($model, 'need_water'); ?>
+            <?php echo $form->error($model,'need_water'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'need_air'); ?>
+            <?php echo $form->textField($model, 'need_air'); ?>
+            <?php echo $form->error($model,'need_air'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'need_earth'); ?>
+            <?php echo $form->textField($model, 'need_earth'); ?>
+            <?php echo $form->error($model,'need_earth'); ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $form->labelEx($model,'need_light'); ?>
+            <?php echo $form->textField($model, 'need_light'); ?>
+            <?php echo $form->error($model,'need_light'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'need_gray'); ?>
+            <?php echo $form->textField($model, 'need_gray'); ?>
+            <?php echo $form->error($model,'need_gray'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'need_dark'); ?>
+            <?php echo $form->textField($model, 'need_dark'); ?>
+            <?php echo $form->error($model,'need_dark'); ?>
+        </td>
+        <td></td>
     </tr>
     <tr>
         <td colspan="5"><hr></td>
@@ -247,6 +300,49 @@
     </tr>
     <tr>
         <td>
+            <?php echo $form->labelEx($model,'give_fire'); ?>
+            <?php echo $form->textField($model, 'give_fire'); ?>
+            <?php echo $form->error($model,'give_fire'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'give_water'); ?>
+            <?php echo $form->textField($model, 'give_water'); ?>
+            <?php echo $form->error($model,'give_water'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'give_air'); ?>
+            <?php echo $form->textField($model, 'give_air'); ?>
+            <?php echo $form->error($model,'give_air'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'give_earth'); ?>
+            <?php echo $form->textField($model, 'give_earth'); ?>
+            <?php echo $form->error($model,'give_earth'); ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $form->labelEx($model,'give_light'); ?>
+            <?php echo $form->textField($model, 'give_light'); ?>
+            <?php echo $form->error($model,'give_light'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'give_gray'); ?>
+            <?php echo $form->textField($model, 'give_gray'); ?>
+            <?php echo $form->error($model,'give_gray'); ?>
+        </td>
+        <td>
+            <?php echo $form->labelEx($model,'give_dark'); ?>
+            <?php echo $form->textField($model, 'give_dark'); ?>
+            <?php echo $form->error($model,'give_dark'); ?>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="5"><hr></td>
+    </tr>
+    <tr>
+        <td>
             <?php echo $form->labelEx($model,'armor_head'); ?>
             <?php echo $form->textField($model, 'armor_head'); ?>
             <?php echo $form->error($model,'armor_head'); ?>
@@ -339,6 +435,16 @@
             <?php echo $form->labelEx($model,'can_podgon'); ?>
             <?php echo $form->error($model,'can_podgon'); ?>
         </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $form->checkBox($model, 'can_rep'); ?>
+            <?php echo $form->labelEx($model,'can_rep'); ?>
+            <?php echo $form->error($model,'can_rep'); ?>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td colspan="5"><hr></td>

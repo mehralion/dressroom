@@ -98,6 +98,7 @@ class ObkItems extends BaseObkItems
             'can_mf' => Yii::t('app', 'Возможность модификации'),
             'can_ap' => Yii::t('app', 'Возможность апа'),
             'can_podgon' => Yii::t('app', 'Возможность подгона'),
+            'can_rep' => Yii::t('app', 'Возможность ремонта'),
             'level' => Yii::t('app', 'Уровень'),
             'strange' => Yii::t('app', 'Сила'),
             'agility' => Yii::t('app', 'Ловкость'),
@@ -133,6 +134,21 @@ class ObkItems extends BaseObkItems
             'prokat_10' => Yii::t('app', 'Прокат [10]'),
             'prokat_11' => Yii::t('app', 'Прокат [11]'),
             'prokat_12' => Yii::t('app', 'Прокат [12]'),
+            'need_fire' => Yii::t('app', 'Магия огня'),
+            'need_water' => Yii::t('app', 'Магия воды'),
+            'need_air' => Yii::t('app', 'Магия воздуха'),
+            'need_earth' => Yii::t('app', 'Магия земли'),
+            'need_light' => Yii::t('app', 'Магия света'),
+            'need_gray' => Yii::t('app', 'Серая магия'),
+            'need_dark' => Yii::t('app', 'Магия тьмы'),
+            'give_fire' => Yii::t('app', 'Магия огня'),
+            'give_water' => Yii::t('app', 'Магия воды'),
+            'give_air' => Yii::t('app', 'Магия воздуха'),
+            'give_earth' => Yii::t('app', 'Магия земли'),
+            'give_light' => Yii::t('app', 'Магия света'),
+            'give_gray' => Yii::t('app', 'Серая магия'),
+            'give_dark' => Yii::t('app', 'Магия тьмы'),
+            'rareitem' => Yii::t('app', 'Тип предмета'),
         );
     }
 
@@ -196,6 +212,9 @@ class ObkItems extends BaseObkItems
 
     public function rules() {
         return array(
+            array('need_fire, need_water, need_air, need_earth, need_light, need_gray, need_dark', 'numerical', 'integerOnly'=>true),
+            array('give_fire, give_water, give_air, give_earth, give_light, give_gray, give_dark', 'numerical', 'integerOnly'=>true),
+            array('rareitem, can_rep', 'numerical', 'integerOnly'=>true),
             array('prokat_7, prokat_8, prokat_9, prokat_10, prokat_11, prokat_12, prokat_level', 'safe'),
             //array('category_id, name, price_reputation, price, need_level, need_strange, need_agility, need_intuition, need_endurance, need_knife, need_ax, need_sword, need_baton, need_align, min_damage, max_damage, give_strange, give_agility, give_intuition, give_intellect, give_wisdom, give_hp, mf_critical, mf_p_critical, mf_flee, mf_p_flee, give_knife, give_ax, give_baton, give_sword, img, armor_head, armor_body, armor_belt, armor_feet, weight, increased_damage, increased_armor, increased_mf', 'required'),
             array('category_id, price_ekr, durability, price_reputation, need_level, need_strange, need_agility, need_intuition, need_endurance, need_knife, need_ax, need_sword, need_baton, min_damage, max_damage, give_strange, give_agility, give_intuition, give_intellect, give_wisdom, give_hp, mf_critical, mf_p_critical, mf_flee, mf_p_flee, give_knife, give_ax, give_baton, give_sword, armor_head, armor_body, armor_belt, armor_feet, weight, free_stats, free_mf, increased_damage, increased_armor, increased_mf, is_art, can_mf, can_ap, can_podgon, enabled_rune_increased_damage, enabled_rune_increased_armor, enabled_rune_increased_mf', 'numerical', 'integerOnly'=>true),
@@ -204,5 +223,21 @@ class ObkItems extends BaseObkItems
             array('free_stats, free_mf, is_art, can_mf, can_ap, can_podgon', 'default', 'setOnEmpty' => true, 'value' => null),
             array('id, category_id, name, price_reputation, price, need_level, need_strange, need_agility, need_intuition, need_endurance, need_knife, need_ax, need_sword, need_baton, need_align, min_damage, max_damage, give_strange, give_agility, give_intuition, give_intellect, give_wisdom, give_hp, mf_critical, mf_p_critical, mf_flee, mf_p_flee, give_knife, give_ax, give_baton, give_sword, img, armor_head, armor_body, armor_belt, armor_feet, weight, free_stats, free_mf, increased_damage, increased_armor, increased_mf, is_art, can_mf, can_ap, can_podgon', 'safe'),
         );
+    }
+
+    const RARE_RARE         = 1;
+    const RARE_GREAT        = 2;
+    const RARE_LEGENDARY    = 3;
+    const RARE_EPIC         = 4;
+    private static $rare_labels = array(
+        self::RARE_RARE         => 'Редкий',
+        self::RARE_GREAT        => 'Великий',
+        self::RARE_LEGENDARY    => 'Легендарный',
+        self::RARE_EPIC         => 'Эпичный',
+    );
+
+    public static function getRareList()
+    {
+        return self::$rare_labels;
     }
 }

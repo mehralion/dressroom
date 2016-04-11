@@ -56,6 +56,24 @@
  * @property integer $can_ap
  * @property integer $can_podgon
  *
+ * @property integer $need_fire
+ * @property integer $need_water
+ * @property integer $need_air
+ * @property integer $need_earth
+ * @property integer $need_light
+ * @property integer $need_gray
+ * @property integer $need_dark
+ * @property integer $give_fire
+ * @property integer $give_water
+ * @property integer $give_air
+ * @property integer $give_earth
+ * @property integer $give_light
+ * @property integer $give_gray
+ * @property integer $give_dark
+ *
+ * @property integer $rareitem
+ * @property integer $can_rep
+ *
  */
 abstract class BaseObkItems extends GxActiveRecord {
 
