@@ -88,7 +88,7 @@ class ApiController extends Controller
 
         $items_count = 0;
         foreach ($categoriesAndTypes as $razdel => $type) {
-            $criteria->params = array(':category_id' => $this->_categories[$razdel], ':start_id' => 854);
+            $criteria->params = array(':category_id' => $this->_categories[$razdel], ':start_id' => 946);
             $items = ObkItems::model()->findAll($criteria);
 
             $result[$razdel] = $this->prepareArray($items, $razdel, $type);
