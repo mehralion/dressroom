@@ -73,7 +73,7 @@
     <tr>
         <td>
             <?php echo $form->labelEx($model,'rareitem'); ?>
-            <?php echo CHtml::activeDropDownList($model, 'rareitem', ObkItems::getRareList()); ?>
+            <?php echo CHtml::activeDropDownList($model, 'rareitem', CMap::mergeArray(array(0 => 'Стандартный'), ObkItems::getRareList())); ?>
             <?php echo $form->error($model,'rareitem'); ?>
         </td>
         <td></td>
